@@ -9,16 +9,17 @@ const QuestionSelector = (props) => {
 
   })
 
+
   function handleChange(event) {
     props.onQuestionSelected(event.target.value);
   }
 
   return (
-    <select defaultValue="default" name="question-selector"
+    <ul defaultValue="default" name="question-selector"
       id="question-selector" onChange={handleChange}>
-        <option disabled value="default">Choose a questions...</option>
-        {options[20]}
-      </select>
+        <li disabled value="default">Choose a questions...</li>
+        {options}
+      </ul>
   )
 }
 

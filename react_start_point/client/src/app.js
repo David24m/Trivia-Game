@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import QuestionsContainer from "./containers/QuestionsContainer"
+import Homepage from "./homepage.js"
 
 window.addEventListener('load', function () {
   ReactDOM.render(
-    <QuestionsContainer />,
+    <Homepage />,
     document.getElementById('app')
   );
 });
