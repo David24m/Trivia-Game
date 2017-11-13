@@ -1,4 +1,5 @@
 import React from "react";
+import he from "he";
 
 const QuestionAnswers = (props) => {
 
@@ -12,19 +13,35 @@ const answer = (event) => {
 //   const answer = "correct"
 // }
 
+
+
 if(props.answers === null) return null;
 const answerList = props.answers.incorrect_answers;
 answerList.push(props.answers.correct_answer);
-const shufAnswerList = shuffle(answerList);
-console.log(shuffleAnswerList);
+const shufAnswerList = answerList.sort(function() { return 0.5 - Math.random() });
+console.log(shufAnswerList);
+
+
+// function shuffle(answerList) {
+//     var shuffles, shufAnswerList, index;
+//     for (index = answerList.length - 1; index > 0; index--) {
+//         shuffles = Math.floor(Math.random() * (index + 1));
+//         shufAnswerList = answerList[index];
+//         answerList[index] = answerList[shuffles];
+//         answerList[shuffles] = shufAnswerList;
+//         console.log(shufAnswerList);
+//     }
+// }
+
+
 
   if(!props.answers) return null;
   return (
     <div>
-      <button onClick={answer}>{props.answers.incorrect_answers[0]}</button>
-      <button onClick={answer}>{props.answers.incorrect_answers[1]}</button>
-      <button onClick={answer}>{props.answers.correct_answer}</button>
-      <button onClick={answer}>{props.answers.incorrect_answers[2]}</button>
+      <button onClick={answer}>{he.decode(shufAnswerList[0])}</button>
+      <button onClick={answer}>{he.decode(shufAnswerList[1])}</button>
+      <button onClick={answer}>{he.decode(shufAnswerList[2])}</button>
+      <button onClick={answer}>{he.decode(shufAnswerList[3])}</button>
       {answer}
     </div>
   )
