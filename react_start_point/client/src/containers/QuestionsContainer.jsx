@@ -7,9 +7,11 @@ class QuestionsContainer extends React.Component {
     super(props);
     this.state = {
       questions: [],
-      currentQuestion: null
+      currentQuestion: null,
+      answerChosen: null
     }
     this.handleQuestionSelected = this.handleQuestionSelected.bind(this);
+    this.answerResponse = this.answerResponse.bind(this);
   };
 
   componentDidMount() {
@@ -32,13 +34,22 @@ class QuestionsContainer extends React.Component {
     this.setState({currentQuestion: selectedQuestion});
   }
 
+  answerResponse(response) {
+
+    this.setState({answerChosen: response})
+    if(answerChosen === true) return <p>"Correct"</p>
+    if(answerChosen === false) return <p>"Wrong"</p>
+    else return ""
+  }
+
   render() {
     return (
       <div>
         <h1>this is working</h1>
         <QuestionSelector questions={this.state.currentQuestion}
           onQuestionSelected={this.handleQuestionSelected}/>
-        <QuestionAnswers answers={this.state.currentQuestion} />
+        <QuestionAnswers answers={this.state.currentQuestion}
+          onAnswerSelected={this.answerResponse} />
       </div>
     );
   }

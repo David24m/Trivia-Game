@@ -6,11 +6,20 @@ const QuestionAnswers = (props) => {
   if (props.answers) console.log(props.answers.correct_answer)
 
 const answer = (event) => {
+  console.log(event.target.innerText)
+  console.log(props.answers.correct_answer)
+
+
   if (event.target.innerText == props.answers.correct_answer){
-    console.log("go you!")
+    console.log("true")
+
+    props.onAnswerSelected(true);
+  }else{
+    props.onAnswerSelected(false);
+
   }
-  if(this.answer === props.answers.correct_answer) return <p>"Correct"</p>
-  else return <p>"Wrong"</p>
+  // if(this.answer === props.answers.correct_answer) return <p>"Correct"</p>
+  // else return <p>"Wrong"</p>
 
 }
 
@@ -28,7 +37,6 @@ console.log(shufAnswerList);
       <button onClick={answer}>{he.decode(shufAnswerList[1])}</button>
       <button onClick={answer}>{he.decode(shufAnswerList[2])}</button>
       <button onClick={answer}>{he.decode(shufAnswerList[3])}</button>
-      {answer}
     </div>
   )
 }
