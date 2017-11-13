@@ -20,7 +20,8 @@ class QuestionsContainer extends React.Component {
       if(request.status !== 200) return;
       const jsonString = request.responseText;
       const data = JSON.parse(jsonString);
-      const question = data.results.shift();
+      const questionList = data.results.sort(function() { return 0.5 - Math.random() });
+      const question = questionList.shift();
       this.setState({questions: data.results, currentQuestion: question });
     })
     request.send();
@@ -30,10 +31,6 @@ class QuestionsContainer extends React.Component {
     const selectedQuestion = this.state.questions[index];
     this.setState({currentQuestion: selectedQuestion});
   }
-
-  // chooseQuestion() {
-  //
-  // }
 
   render() {
     return (

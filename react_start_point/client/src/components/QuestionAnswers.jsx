@@ -3,16 +3,16 @@ import he from "he";
 
 const QuestionAnswers = (props) => {
 
+  if (props.answers) console.log(props.answers.correct_answer)
+
 const answer = (event) => {
-  if(props.answers.incorrect_answers) return <p>"wrong"</p>
-  else return <p>"correct"</p>
+  if (event.target.innerText == props.answers.correct_answer){
+    console.log("go you!")
+  }
+  if(this.answer === props.answers.correct_answer) return <p>"Correct"</p>
+  else return <p>"Wrong"</p>
+
 }
-
-
-// const rightAnswer = (e) => {
-//   const answer = "correct"
-// }
-
 
 
 if(props.answers === null) return null;
@@ -20,20 +20,6 @@ const answerList = props.answers.incorrect_answers;
 answerList.push(props.answers.correct_answer);
 const shufAnswerList = answerList.sort(function() { return 0.5 - Math.random() });
 console.log(shufAnswerList);
-
-
-// function shuffle(answerList) {
-//     var shuffles, shufAnswerList, index;
-//     for (index = answerList.length - 1; index > 0; index--) {
-//         shuffles = Math.floor(Math.random() * (index + 1));
-//         shufAnswerList = answerList[index];
-//         answerList[index] = answerList[shuffles];
-//         answerList[shuffles] = shufAnswerList;
-//         console.log(shufAnswerList);
-//     }
-// }
-
-
 
   if(!props.answers) return null;
   return (
