@@ -8,7 +8,7 @@ if(props.questions === null) return null;
   return (
 
     <div id="question-selector">
-        {props.questions.question}
+        {he.decode(props.questions.question)}
       </div>
   )
 }
