@@ -2,10 +2,19 @@ import React from "react";
 import QuestionsContainer from "./containers/QuestionsContainer"
 
 class Homepage extends React.Component {
+  constructor(props) {
+  super(props);
+  this.state = {
+    showComponent: false,
+  }
+  this.startGame = this.startGame.bind(this);
+}
 
 
   startGame(e) {
-    <QuestionsContainer />
+    this.setState({
+      showComponent: true,
+    });
   }
 
 
@@ -18,7 +27,10 @@ class Homepage extends React.Component {
        <h2>This is a best of 5 game. Let's get started</h2>
 
        <button onClick={this.startGame}>Start</button>
-       {/* <QuestionsContainer /> */}
+       {this.state.showComponent ?
+           <QuestionsContainer /> :
+           null
+        }
      </div>
    );
   }

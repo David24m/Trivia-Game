@@ -20,7 +20,8 @@ class QuestionsContainer extends React.Component {
       if(request.status !== 200) return;
       const jsonString = request.responseText;
       const data = JSON.parse(jsonString);
-      this.setState({questions: data.results });
+      const question = data.results.shift();
+      this.setState({questions: data.results, currentQuestion: question });
     })
     request.send();
   }
@@ -30,11 +31,15 @@ class QuestionsContainer extends React.Component {
     this.setState({currentQuestion: selectedQuestion});
   }
 
+  // chooseQuestion() {
+  //
+  // }
+
   render() {
     return (
       <div>
         <h1>this is working</h1>
-        <QuestionSelector questions={this.state.questions}
+        <QuestionSelector questions={this.state.currentQuestion}
           onQuestionSelected={this.handleQuestionSelected}/>
         <QuestionAnswers answers={this.state.currentQuestion} />
       </div>

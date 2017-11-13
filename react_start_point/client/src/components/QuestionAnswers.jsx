@@ -12,11 +12,11 @@ const answer = (event) => {
 //   const answer = "correct"
 // }
 
-
-// const answerList = props.answers;
+if(props.answers === null) return null;
+const answerList = props.answers.incorrect_answers;
 // answerList.push(props.answers.correct_answer);
 // const shufAnswerList = shuffle(answerList);
-console.log(props.answers);
+console.log(props.answers.incorrect_answers);
 
   if(!props.answers) return null;
   return (
