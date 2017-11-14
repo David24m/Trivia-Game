@@ -42,6 +42,7 @@ class QuestionsContainer extends React.Component {
 
   nextQuestion (event) {
     this.setState({indexOfCurrentQuestion: this.state.indexOfCurrentQuestion+1})
+    this.setState({answerChosen: null })
   }
 
 
