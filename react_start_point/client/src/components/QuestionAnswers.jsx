@@ -3,24 +3,21 @@ import he from "he";
 
 const QuestionAnswers = (props) => {
 
-  if (props.answers) console.log(props.answers.correct_answer)
+  // if (props.answers) console.log(props.answers.correct_answer)
 
 const answer = (event) => {
-  console.log(event.target.innerText)
-  console.log(props.answers.correct_answer)
+  // console.log(event.target.innerText)
+  // console.log(props.answers.correct_answer)
 
 
   if (event.target.innerText == props.answers.correct_answer){
-    console.log("true")
+    // console.log("true")
 
     props.onAnswerSelected(true);
   }else{
     props.onAnswerSelected(false);
 
   }
-  // if(this.answer === props.answers.correct_answer) return <p>"Correct"</p>
-  // else return <p>"Wrong"</p>
-
 }
 
 
@@ -28,7 +25,7 @@ if(props.answers === null) return null;
 const answerList = props.answers.incorrect_answers;
 answerList.push(props.answers.correct_answer);
 const shufAnswerList = answerList.sort(function() { return 0.5 - Math.random() });
-console.log(shufAnswerList);
+// console.log(shufAnswerList);
 
   if(!props.answers) return null;
   return (

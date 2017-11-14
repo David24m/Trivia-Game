@@ -1,6 +1,7 @@
 import React from "react";
 import QuestionSelector from "../components/QuestionSelector"
 import QuestionAnswers from "../components/QuestionAnswers"
+import AnswerResponse from "../components/AnswerResponse"
 
 class QuestionsContainer extends React.Component {
   constructor(props) {
@@ -37,10 +38,8 @@ class QuestionsContainer extends React.Component {
   answerResponse(response) {
 
     this.setState({answerChosen: response})
-    if(answerChosen === true) return <p>"Correct"</p>
-    if(answerChosen === false) return <p>"Wrong"</p>
-    else return ""
   }
+
 
   render() {
     return (
@@ -50,6 +49,7 @@ class QuestionsContainer extends React.Component {
           onQuestionSelected={this.handleQuestionSelected}/>
         <QuestionAnswers answers={this.state.currentQuestion}
           onAnswerSelected={this.answerResponse} />
+        <AnswerResponse answerChosen={this.state.answerChosen}/>
       </div>
     );
   }
