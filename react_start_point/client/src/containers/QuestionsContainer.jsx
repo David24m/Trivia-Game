@@ -44,7 +44,6 @@ class QuestionsContainer extends React.Component {
   render() {
     return (
       <div>
-        <h1>this is working</h1>
         <QuestionSelector questions={this.state.currentQuestion}
           onQuestionSelected={this.handleQuestionSelected}/>
         <QuestionAnswers answers={this.state.currentQuestion}
