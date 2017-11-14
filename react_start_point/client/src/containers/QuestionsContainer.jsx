@@ -2,6 +2,7 @@ import React from "react";
 import QuestionSelector from "../components/QuestionSelector"
 import QuestionAnswers from "../components/QuestionAnswers"
 import AnswerResponse from "../components/AnswerResponse"
+import DeclareResult from "../components/DeclareResult"
 
 class QuestionsContainer extends React.Component {
   constructor(props) {
@@ -9,7 +10,9 @@ class QuestionsContainer extends React.Component {
     this.state = {
       questions: [],
       indexOfCurrentQuestion: 0,
-      answerChosen: null
+      answerChosen: null,
+      correctAnswer: 0,
+      incorrectAnswer: 0
     }
     this.answerResponse = this.answerResponse.bind(this);
     this.nextQuestion = this.nextQuestion.bind(this);
@@ -38,6 +41,8 @@ class QuestionsContainer extends React.Component {
   answerResponse(response) {
 
     this.setState({answerChosen: response})
+    if(response === true) this.setState({correctAnswer: this.state.correctAnswer+1})
+    if(response === false) this.setState({incorrectAnswer: this.state.incorrectAnswer+1})
   }
 
   nextQuestion (event) {
@@ -54,7 +59,9 @@ class QuestionsContainer extends React.Component {
         <QuestionAnswers answers={this.state.questions[this.state.indexOfCurrentQuestion]}
           onAnswerSelected={this.answerResponse} />
         <AnswerResponse answerChosen={this.state.answerChosen}
-        nextQuestion={this.nextQuestion}/>
+          nextQuestion={this.nextQuestion}/>
+        <DeclareResult correctAnswer={this.state.correctAnswer}
+          incorrectAnswer={this.state.incorrectAnswer}/>
       </div>
     );
   }
