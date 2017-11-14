@@ -21,15 +21,18 @@ class Homepage extends React.Component {
 
 
   render() {
+
+    const header =  <div><h1>It's time to play the game!</h1>
+     <h2>This is a best of 5 game. Let's get started</h2>
+
+     <button onClick={this.startGame}>Start</button></div>
+
     return (
      <div>
-       <h1>It's time to play the game!</h1>
-       <h2>This is a best of 5 game. Let's get started</h2>
 
-       <button onClick={this.startGame}>Start</button>
        {this.state.showComponent ?
            <QuestionsContainer /> :
-           null
+           header
         }
      </div>
    );
