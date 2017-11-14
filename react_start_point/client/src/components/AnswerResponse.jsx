@@ -13,13 +13,13 @@ if(props.answerChosen === true) {
   string = "Correct! Well we now have proof miracles can happen"
 }
 if(props.answerChosen === false) {
-string = "Wrong! No real surprise I guess"
+  string = "Wrong! No real surprise I guess"
 }
   return (
     <div>
-  <p>{string}</p>
-  <button onClick={this.nextQuestion}>Next Question</button>
-  </div>
+      <p>{string}</p>
+      <button onClick={props.nextQuestion}>Next Question</button>
+    </div>
   )
 }
 

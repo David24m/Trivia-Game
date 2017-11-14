@@ -8,11 +8,11 @@ class QuestionsContainer extends React.Component {
     super(props);
     this.state = {
       questions: [],
-      currentQuestion: null,
+      indexOfCurrentQuestion: 0,
       answerChosen: null
     }
-    this.handleQuestionSelected = this.handleQuestionSelected.bind(this);
     this.answerResponse = this.answerResponse.bind(this);
+    this.nextQuestion = this.nextQuestion.bind(this);
   };
 
   componentDidMount() {
@@ -24,20 +24,24 @@ class QuestionsContainer extends React.Component {
       const jsonString = request.responseText;
       const data = JSON.parse(jsonString);
       const questionList = data.results.sort(function() { return 0.5 - Math.random() });
-      const question = questionList.shift();
-      this.setState({questions: data.results, currentQuestion: question });
+
+      this.setState({questions: data.results});
     })
     request.send();
   }
 
-  handleQuestionSelected(index) {
-    const selectedQuestion = this.state.questions[index];
-    this.setState({currentQuestion: selectedQuestion});
-  }
+  // handleQuestionSelected(index) {
+  //   const selectedQuestion = this.state.questions[index];
+  //   this.setState({currentQuestion: selectedQuestion});
+  // }
 
   answerResponse(response) {
 
     this.setState({answerChosen: response})
+  }
+
+  nextQuestion (event) {
+    this.setState({indexOfCurrentQuestion: this.state.indexOfCurrentQuestion+1})
   }
 
 
@@ -45,11 +49,11 @@ class QuestionsContainer extends React.Component {
   render() {
     return (
       <div>
-        <QuestionSelector questions={this.state.currentQuestion}
-          onQuestionSelected={this.handleQuestionSelected}/>
-        <QuestionAnswers answers={this.state.currentQuestion}
+        <QuestionSelector questions={this.state.questions[this.state.indexOfCurrentQuestion]}/>
+        <QuestionAnswers answers={this.state.questions[this.state.indexOfCurrentQuestion]}
           onAnswerSelected={this.answerResponse} />
-        <AnswerResponse answerChosen={this.state.answerChosen}/>
+        <AnswerResponse answerChosen={this.state.answerChosen}
+        nextQuestion={this.nextQuestion}/>
       </div>
     );
   }

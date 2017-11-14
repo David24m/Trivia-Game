@@ -21,7 +21,7 @@ const answer = (event) => {
 }
 
 
-if(props.answers === null) return null;
+if(props.answers == null) return null;
 const answerList = props.answers.incorrect_answers;
 answerList.push(props.answers.correct_answer);
 const shufAnswerList = answerList.sort(function() { return 0.5 - Math.random() });

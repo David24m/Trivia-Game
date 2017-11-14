@@ -3,7 +3,7 @@ import he from "he";
 
 const QuestionSelector = (props) => {
 
-if(props.questions === null) return null;
+if(props.questions == null) return null;
 
   return (
 
