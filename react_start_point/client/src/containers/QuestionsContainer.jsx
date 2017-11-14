@@ -60,30 +60,24 @@ class QuestionsContainer extends React.Component {
 
   render() {
 
-    const footer =
-      <div>
+    const body =         <div>
+            <QuestionSelector questions={this.state.questions[this.state.indexOfCurrentQuestion]}/>
+            <QuestionAnswers answers={this.state.questions[this.state.indexOfCurrentQuestion]}
+              onAnswerSelected={this.answerResponse} />
+            <AnswerResponse answerChosen={this.state.answerChosen}
+              nextQuestion={this.nextQuestion}/>
+          </div>
 
-      <DeclareResult correctAnswer={this.state.correctAnswer}
-        incorrectAnswer={this.state.incorrectAnswer}/> :
-        div
-      }
-    </div>
 
     return (
 
-
-
-
-        <div>
-          {this.state.gameState ?
-        <QuestionSelector questions={this.state.questions[this.state.indexOfCurrentQuestion]}/>
-        <QuestionAnswers answers={this.state.questions[this.state.indexOfCurrentQuestion]}
-          onAnswerSelected={this.answerResponse} />
-        <AnswerResponse answerChosen={this.state.answerChosen}
-          nextQuestion={this.nextQuestion}/> :
-          footer
-        }
-      </div>
+      <div>
+        {this.state.gameState ?
+      <DeclareResult correctAnswer={this.state.correctAnswer}
+        incorrectAnswer={this.state.incorrectAnswer}/> :
+        body
+      }
+    </div>
 
     );
   }
