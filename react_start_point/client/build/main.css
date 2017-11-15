@@ -9,6 +9,7 @@ html {
   300px;
   background-color: black;
   color: #8A0707;
+  font-family: arial;
 }
 
 body {
@@ -19,7 +20,7 @@ body {
 
 button {
   width: 120px;
-  height: 45px;
+  height: 60px;
   margin: 20px;
   vertical-align: top;
   border-radius: 4px;
@@ -46,6 +47,8 @@ p {
 
 #next-quest-btn {
   padding-bottom: 30px;
+  background-color: white;
+  color: black;
 }
 
 h1, #declare-result{
@@ -64,4 +67,13 @@ h1, #declare-result{
 h1 {
   font-family: "Rock Salt", serif;
   color: #8A0707;
+}
+
+#answer-response {
+  color: white;
+}
+
+#declare-result {
+  font-family: "Rock Salt", serif;
+  color: white;
 }

@@ -15,7 +15,7 @@ if(props.answerChosen === false) {
 }
   return (
     <div>
-      <p>{string}</p>
+      <p id="answer-response">{string}</p>
       <button id="next-quest-btn" onClick={props.nextQuestion}>Next Question</button>
     </div>
   )
