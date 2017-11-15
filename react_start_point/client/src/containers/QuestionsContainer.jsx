@@ -13,7 +13,8 @@ class QuestionsContainer extends React.Component {
       answerChosen: null,
       correctAnswer: 0,
       incorrectAnswer: 0,
-      gameState: false
+      gameState: false,
+      answersDisabled: false
     }
     this.answerResponse = this.answerResponse.bind(this);
     this.nextQuestion = this.nextQuestion.bind(this);
@@ -35,6 +36,7 @@ class QuestionsContainer extends React.Component {
 
   answerResponse(response) {
     this.setState({answerChosen: response})
+    this.setState({answersDisabled: true})
     if(response === true) this.setState({correctAnswer: this.state.correctAnswer+1}, this.checkForGameEnd)
     if(response === false) this.setState({incorrectAnswer: this.state.incorrectAnswer+1}, this.checkForGameEnd)
   }
@@ -50,6 +52,7 @@ class QuestionsContainer extends React.Component {
   nextQuestion (event) {
     this.setState({indexOfCurrentQuestion: this.state.indexOfCurrentQuestion+1})
     this.setState({answerChosen: null })
+    this.setState({answersDisabled: false})
   }
 
   render() {
@@ -58,7 +61,8 @@ class QuestionsContainer extends React.Component {
       <div>
         <QuestionSelector questions={this.state.questions[this.state.indexOfCurrentQuestion]}/>
         <QuestionAnswers answers={this.state.questions[this.state.indexOfCurrentQuestion]}
-          onAnswerSelected={this.answerResponse} />
+          onAnswerSelected={this.answerResponse}
+          answersDisabled={this.state.answersDisabled} />
         <AnswerResponse answerChosen={this.state.answerChosen}
           nextQuestion={this.nextQuestion}/>
       </div>
