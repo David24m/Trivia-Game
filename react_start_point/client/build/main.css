@@ -1,4 +1,10 @@
 html {
+  background: #0A0B39 url('/Blood.png');
+  background-repeat:repeat-x;
+  background-position:top;
+  background-attachment: fixed;
+  background-size: 1000px
+  300px;
   background-color: black;
   color: #8A0707;
 }
@@ -22,6 +28,7 @@ p {
 }
 
 #homepage {
+  padding-top: 55px;
   margin-top: 5%;
   margin-bottom: 5%;
 }
@@ -35,6 +42,10 @@ p {
   padding-bottom: 30px;
 }
 
-#declare-result{
+h1, #declare-result{
   font-size: 50px;
+}
+
+#question-selector, #declare-result {
+  padding-top: 120px;
 }
