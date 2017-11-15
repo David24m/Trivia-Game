@@ -42,10 +42,16 @@ class QuestionsContainer extends React.Component {
   answerResponse(response) {
 
     this.setState({answerChosen: response})
-    if(response === true) this.setState({correctAnswer: this.state.correctAnswer+1})
-    if(response === false) this.setState({incorrectAnswer: this.state.incorrectAnswer+1})
+    if(response === true) this.setState({correctAnswer: this.state.correctAnswer+1}, this.checkForGameEnd)
+    if(response === false) this.setState({incorrectAnswer: this.state.incorrectAnswer+1}, this.checkForGameEnd)
+
+  }
+
+  checkForGameEnd(){
     if (this.state.correctAnswer === 3 || this.state.incorrectAnswer === 3){
       this.setState({gameState: true})
+      console.log(this.state.correctAnswer);
+      console.log(this.state.incorrectAnswer);
     }
   }
 
@@ -60,25 +66,24 @@ class QuestionsContainer extends React.Component {
 
   render() {
 
-    const body =         <div>
-            <QuestionSelector questions={this.state.questions[this.state.indexOfCurrentQuestion]}/>
-            <QuestionAnswers answers={this.state.questions[this.state.indexOfCurrentQuestion]}
-              onAnswerSelected={this.answerResponse} />
-            <AnswerResponse answerChosen={this.state.answerChosen}
-              nextQuestion={this.nextQuestion}/>
-          </div>
-
+    const body = <div>
+      <QuestionSelector questions={this.state.questions[this.state.indexOfCurrentQuestion]}/>
+      <QuestionAnswers answers={this.state.questions[this.state.indexOfCurrentQuestion]}
+        onAnswerSelected={this.answerResponse} />
+      <AnswerResponse answerChosen={this.state.answerChosen}
+        nextQuestion={this.nextQuestion}/>
+    </div>
 
     return (
 
       <div>
-        {this.state.gameState ?
-      <DeclareResult correctAnswer={this.state.correctAnswer}
-        incorrectAnswer={this.state.incorrectAnswer}/> :
-        body
-      }
-    </div>
 
+        {this.state.gameState ?
+        <DeclareResult correctAnswer={this.state.correctAnswer}
+          incorrectAnswer={this.state.incorrectAnswer}/> :
+          body
+        }
+      </div>
     );
   }
 

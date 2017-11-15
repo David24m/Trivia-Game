@@ -3,7 +3,7 @@ import he from "he";
 
 const QuestionAnswers = (props) => {
 
-  // if (props.answers) console.log(props.answers.correct_answer)
+  if (props.answers) console.log(props.answers.correct_answer)
 
 const answer = (event) => {
   // console.log(event.target.innerText)
