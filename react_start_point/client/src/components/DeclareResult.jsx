@@ -12,7 +12,7 @@ if(props.incorrectAnswer === 3) {
 }
   return (
     <div>
-      <p>{resultString}</p>
+      <p id="declare-result">{resultString}</p>
     </div>
   )
 }
