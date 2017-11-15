@@ -5,10 +5,10 @@ const DeclareResult = (props) => {
 let resultString = null;
 
 if(props.correctAnswer === 3) {
-  resultString = "Wow! you won"
+  resultString = "Wow! You won?! I'll get you next time!"
 }
 if(props.incorrectAnswer === 3) {
-  resultString = "You lost, idiot!"
+  resultString = "Mwahahaha! You lost! Your fate awaits!"
 }
   return (
     <div>

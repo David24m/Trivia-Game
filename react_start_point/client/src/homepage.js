@@ -20,10 +20,10 @@ class Homepage extends React.Component {
 
     const header =  <div id="homepage"><h1>Victory or Death</h1>
      <p>Would you like to play a game?</p>
-     <p>It's quite simple really, best of 5 questions</p>
-     <p>If you lose, I'll take your soul</p>
-     <p>If you win...look who I'm telling...nevermind!</p>
-     <p>Any questions...No...Then let's begin</p>
+     <p>It's quite simple really, best of 5 questions...</p>
+     <p>If you lose, I'll take your soul,</p>
+     <p>If you win...NEVER going to happen!</p>
+     <p>Any questions? No...Then let's begin!</p>
 
      <button id="homepage-btn" onClick={this.startGame}>Start</button></div>
 
