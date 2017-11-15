@@ -18,10 +18,14 @@ class Homepage extends React.Component {
 
   render() {
 
-    const header =  <div><h1>It's time to play the game!</h1>
-     <h2>This is a best of 5 game. Let's get started</h2>
+    const header =  <div id="homepage"><h1>Victory or Death</h1>
+     <p>Would you like to play a game?</p>
+     <p>It's quite simple really, best of 5 questions</p>
+     <p>If you lose, I'll take your soul</p>
+     <p>If you win...look who I'm telling...nevermind!</p>
+     <p>Any questions...No...Then let's begin</p>
 
-     <button onClick={this.startGame}>Start</button></div>
+     <button id="homepage-btn" onClick={this.startGame}>Start</button></div>
 
     return (
      <div>
