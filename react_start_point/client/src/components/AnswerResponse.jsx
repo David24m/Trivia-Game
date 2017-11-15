@@ -1,11 +1,8 @@
 import React from "react";
-import he from "he";
 
 const AnswerResponse = (props) => {
 
 if(props.questions === null) return null;
-
-console.log(props);
 
 let string = null;
 
