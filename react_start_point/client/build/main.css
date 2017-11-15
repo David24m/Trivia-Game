@@ -1,6 +1,12 @@
 html {
   background-color: black;
-  color: white;
+  color: #8A0707;
+}
+
+body {
+  text-align: center;
+  margin-top: 15%;
+  margin-bottom: 15%;
 }
 
 button {
