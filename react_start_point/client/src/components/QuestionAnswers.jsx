@@ -20,7 +20,7 @@ const shufAnswerList = answerList.sort(function() { return 0.5 - Math.random() }
 
   if(!props.answers) return null;
   return (
-    <div>
+    <div id="answer-buttons">
       <button onClick={props.answersDisabled? null : answer}>{he.decode(shufAnswerList[0])}</button>
       <button onClick={props.answersDisabled? null : answer}>{he.decode(shufAnswerList[1])}</button>
       <button onClick={props.answersDisabled? null : answer}>{he.decode(shufAnswerList[2])}</button>
