@@ -2,8 +2,6 @@ import React from "react";
 
 const DeclareResult = (props) => {
 
-// if(props.questions == null) return null;
-
 let resultString = null;
 
 if(props.correctAnswer === 3) {

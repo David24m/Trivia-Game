@@ -28,23 +28,15 @@ class QuestionsContainer extends React.Component {
       const jsonString = request.responseText;
       const data = JSON.parse(jsonString);
       const questionList = data.results.sort(function() { return 0.5 - Math.random() });
-
       this.setState({questions: data.results});
     })
     request.send();
   }
 
-  // handleQuestionSelected(index) {
-  //   const selectedQuestion = this.state.questions[index];
-  //   this.setState({currentQuestion: selectedQuestion});
-  // }
-
   answerResponse(response) {
-
     this.setState({answerChosen: response})
     if(response === true) this.setState({correctAnswer: this.state.correctAnswer+1}, this.checkForGameEnd)
     if(response === false) this.setState({incorrectAnswer: this.state.incorrectAnswer+1}, this.checkForGameEnd)
-
   }
 
   checkForGameEnd(){
@@ -60,33 +52,29 @@ class QuestionsContainer extends React.Component {
     this.setState({answerChosen: null })
   }
 
-
-
-
-
   render() {
 
-    const body = <div>
-      <QuestionSelector questions={this.state.questions[this.state.indexOfCurrentQuestion]}/>
-      <QuestionAnswers answers={this.state.questions[this.state.indexOfCurrentQuestion]}
-        onAnswerSelected={this.answerResponse} />
-      <AnswerResponse answerChosen={this.state.answerChosen}
-        nextQuestion={this.nextQuestion}/>
-    </div>
+    const body =
+      <div>
+        <QuestionSelector questions={this.state.questions[this.state.indexOfCurrentQuestion]}/>
+        <QuestionAnswers answers={this.state.questions[this.state.indexOfCurrentQuestion]}
+          onAnswerSelected={this.answerResponse} />
+        <AnswerResponse answerChosen={this.state.answerChosen}
+          nextQuestion={this.nextQuestion}/>
+      </div>
 
     return (
 
       <div>
 
         {this.state.gameState ?
-        <DeclareResult correctAnswer={this.state.correctAnswer}
-          incorrectAnswer={this.state.incorrectAnswer}/> :
+          <DeclareResult correctAnswer={this.state.correctAnswer}
+            incorrectAnswer={this.state.incorrectAnswer}/> :
           body
         }
       </div>
     );
   }
-
 
 }
 

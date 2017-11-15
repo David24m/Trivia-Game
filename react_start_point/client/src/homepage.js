@@ -10,15 +10,11 @@ class Homepage extends React.Component {
   this.startGame = this.startGame.bind(this);
 }
 
-
   startGame(e) {
     this.setState({
       showComponent: true,
     });
   }
-
-
-
 
   render() {
 
