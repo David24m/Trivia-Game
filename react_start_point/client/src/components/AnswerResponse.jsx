@@ -8,7 +8,7 @@ let string = null;
 
 if(props.answerChosen === null) return null;
 if(props.answerChosen === true) {
-  string = "Correct! Well we now have proof miracles can happen"
+  string = "Correct! So miracles can happen..."
 }
 if(props.answerChosen === false) {
   string = "Wrong! No real surprise I guess"
