@@ -56,6 +56,11 @@ h1, #declare-result{
   padding-top: 120px;
 }
 
+#question-selector {
+  padding-bottom: 50px;
+  color: white;
+}
+
 h1 {
   font-family: "Rock Salt", serif;
   color: #8A0707;
